@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="vuesax_outline_tick-square" data-name="vuesax/outline/tick-square" transform="translate(-748 -252)">
+    <g id="tick-square" transform="translate(748 252)">
+      <path id="Vector" d="M8.021,12.542h-3.5C1.353,12.542,0,11.188,0,8.021v-3.5C0,1.353,1.353,0,4.521,0h3.5c3.168,0,4.521,1.353,4.521,4.521v3.5C12.542,11.188,11.188,12.542,8.021,12.542ZM4.521.875C1.832.875.875,1.832.875,4.521v3.5c0,2.689.957,3.646,3.646,3.646h3.5c2.689,0,3.646-.957,3.646-3.646v-3.5c0-2.689-.957-3.646-3.646-3.646Z" transform="translate(0.729 0.729)"/>
+      <path id="Vector-2" data-name="Vector" d="M2.087,4.181a.437.437,0,0,1-.309-.128L.127,2.4a.437.437,0,0,1,.618-.618L2.087,3.125l3-3A.437.437,0,0,1,5.7.745L2.4,4.053A.437.437,0,0,1,2.087,4.181Z" transform="translate(4.085 4.907)"/>
+      <path id="Vector-3" data-name="Vector" d="M0,0H14V14H0Z" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>
