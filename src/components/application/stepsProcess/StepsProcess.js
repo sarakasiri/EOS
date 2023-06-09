@@ -22,6 +22,11 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import TripOriginIcon from '@mui/icons-material/TripOrigin';
+
+import dashboardIcon from "../../../assets/applyForm/vuesax-bold-grid-3.svg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const steps = [
     {
@@ -54,10 +59,17 @@ const steps = [
     // },
 ];
 
-const stepLableIcon = ({ active = false, complete = false }) => {
+const stepLableIcon = ({ active = false, compelete = false }) => {
     return (
-        <>
-        </>
+        <div>
+            {active ?
+                <TripOriginIcon className={classes.activeIcon} />
+                : compelete ?
+                    <CheckCircleIcon className={classes.completeIcon} />
+                    :
+                    <TripOriginIcon className={classes.defaultIcon} />
+            }
+        </div>
     )
 }
 
@@ -177,37 +189,77 @@ const StepsProcess = () => {
     return (
         <>
             <Box>
-                <Header title="new Application" />
-                <Box>
-                    <Stepper>
-                        {/* {steps.map((step, index) => {
-                            <Step>
-                                <StepLabel StepIconComponent={() => stepLableIcon({
-                                    active: activeStep === index,
-                                    complete: activeStep > index,
-                                    stepNumber: index + 1
-                                })}>
-                                    {step.label}
-                                </StepLabel>
-                            </Step>
-                        })} */}
-                    </Stepper>
-                </Box>
+                <Header
+                    icon={<LazyLoadImage
+                        style={{
+                            width: "1.4rem",
+                            display: "flex",
+                            alignItems: "center",
+                            padding: "0.35rem",
+                            filter: " brightness(0) invert(1) "
 
+                        }}
+                        src={dashboardIcon}
+                    />}
+                    title="New Application"
+                />
+                <Grid container xs={12} className={classes.stepperBackground}  >
+                    <Grid className={classes.stepper} item xs={12}>
+                        <Stepper alternativeLabel
+                            sx={{
+                                ".MuiStepConnector-lineHorizontal": {
+                                    color: "#f8f7fa",
+                                    height: "0.5rem"
+                                },
+                                ".css-z7uhs0-MuiStepConnector-line": {
+                                    borderTopWidth: "0.15rem",
+                                    color: " #a5a0b7",
+                                },
+                                ".css-zpcwqm-MuiStepConnector-root ": {
+                                    left: "calc(-50% + 10px)",
+                                    right: " calc(50% + 10px)",
+                                }
+                            }}
+                            activeStep={activeStep}>
+                            {steps.map((step, index) => {
+                                const stepProps = {};
+                                const labelProps = {};
+
+                                return (
+                                    <>
+                                        <Step key={step.label} {...stepProps} >
+                                            {console.log(labelProps)}
+                                            <StepLabel
+                                                StepIconComponent={() => stepLableIcon({
+                                                    active: activeStep === index,
+                                                    complete: activeStep > index,
+                                                    stepNumber: index + 1
+                                                })}  {...labelProps}>
+                                                {step.description}
+                                            </StepLabel>
+                                        </Step>
+                                    </>
+                                )
+                            })}
+                        </Stepper>
+                    </Grid>
+                </Grid>
                 <Box>
                     {stepContent(activeStep)}
                 </Box>
 
                 {steps.map((step, index) => (
-                    <Grid container spacing={0} xs={12} className={classes.submitButtons} >
+                    <Grid container sx={{ display: "flex", flexDirection: "row" }} spacing={0} xs={12} className={classes.submitButtons} >
                         {index === activeStep - 1 ?
                             (
-                                <Button sx={{ display: "flex", flexDirection: "row" }} variant="outlined" className={classes.handleBackButton} onClick={handleBack}>
-                                    {step.description}
-                                </Button>
+                                <Grid item xs={6}>
+                                    <Button variant="outlined" sx={{ marginLeft: "auto", }} className={classes.handleBackButton} onClick={handleBack}>
+                                        {step.description}
+                                    </Button>
+                                </Grid>
                             ) : index === activeStep + 1 ?
                                 (
-                                    <Button className={classes.handleNextButton} onClick={handleNext}>
+                                    <Button sx={{ marginBottom: "auto" }} className={classes.handleNextButton} onClick={handleNext}>
                                         {step.description}
                                     </Button>
                                 ) : null}

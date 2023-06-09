@@ -13,6 +13,10 @@ import TextField from "@mui/material/TextField";
 import { Formik } from "formik";
 import * as yup from "yup";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import tick from '../../../assets/applyForm/vuesax-outline-tick-square.svg';
+
 const SixthStep = () => {
     const handleFormSubmit = (values) => {
         console.log(values);
@@ -50,6 +54,7 @@ const SixthStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={tick} />
                                     <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Agreement</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>

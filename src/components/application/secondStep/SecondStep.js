@@ -21,6 +21,11 @@ import Button from '@mui/material/Button';
 import { Formik } from "formik";
 import * as yup from "yup";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import book from '../../../assets/applyForm/vuesax-outline-book.svg';
+import award from '../../../assets/applyForm/vuesax-outline-award.svg';
+
 const useStyles = makeStyles({
     root: {
     },
@@ -123,6 +128,8 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={book} />
+
                                     <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Program Request</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>
@@ -225,6 +232,8 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={award} />
+
                                     <Typography style={{
                                         marginRight: "auto ",
                                         color: "#96a0b5",
@@ -428,6 +437,8 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={award} />
+
                                     <Typography style={{
                                         marginRight: "auto ",
                                         color: "#96a0b5",
@@ -632,6 +643,8 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={award} />
+
                                     <Typography style={{
                                         marginRight: "auto ",
                                         color: "#96a0b5",

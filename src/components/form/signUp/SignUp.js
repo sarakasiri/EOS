@@ -16,8 +16,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { Link } from 'react-router-dom';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Formik } from "formik";
 import * as yup from "yup";
+
+import googleIcon from '../../../assets/login/google.svg';
+import userNameIcon from '../../../assets/login/vuesax-outline-frame.svg';
+import lockIcon from '../../../assets/login/vuesax-outline-lock.svg';
+import agentUserIcon from '../../../assets/login/vuesax-outline-sms.svg';
 
 const SignUp = () => {
     const [agentBtn, setAgentBtn] = useState(false);
@@ -49,7 +55,7 @@ const SignUp = () => {
                     <Grid className={classes.formBackground} item xs={6}>
                         <IustPic />
                     </Grid>
-                    <Grid item xs={4.5} className={classes.loginForm}>
+                    <Grid item xs={4} className={classes.loginForm}>
                         <Formik
                             onSubmit={handleFormSubmit}
                             initialValues={initialValues}
@@ -73,7 +79,15 @@ const SignUp = () => {
                                             fullWidth
                                             className={classes.googleLogin}
                                         >
-                                            <span>login with google</span>
+                                            <LazyLoadImage
+                                                src={googleIcon}
+                                                style={{
+                                                    paddingRight: "0.7rem",
+                                                }}
+                                            />
+                                            <span>
+                                                login with google
+                                            </span>
                                         </Button>
 
                                         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.2rem" }}>
@@ -97,7 +111,18 @@ const SignUp = () => {
                                                 borderColor: "#d9e4ec"
                                             }}
                                             label={
-                                                <div >
+                                                <div style={{
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    alignItems: "center"
+                                                }}>
+                                                    <LazyLoadImage
+                                                        src={userNameIcon}
+                                                        style={{
+                                                            paddingRight: "0.3rem",
+                                                            width: "1.1rem"
+                                                        }}
+                                                    />
                                                     <span>username</span>
                                                 </div>
                                             }
@@ -116,24 +141,18 @@ const SignUp = () => {
                                                 helperText={touched.password && errors.password}
                                                 // sx={{ marginBottom: "2rem" }}
                                                 label={
-                                                    <div >
-                                                        <span>password</span>
-                                                    </div>
-                                                }
-                                            ></TextField>
-                                            <TextField
-                                                fullWidth
-                                                variant="outlined"
-                                                type="text"
-                                                onBlur={handleBlur}
-                                                onChange={handleChange}
-                                                value={values.password}
-                                                name="firstName"
-                                                error={!!touched.password && !!errors.password}
-                                                helperText={touched.password && errors.password}
-                                                sx={{ marginLeft: "1rem" }}
-                                                label={
-                                                    <div >
+                                                    <div style={{
+                                                        display: "flex",
+                                                        flexDirection: "row",
+                                                        alignItems: "center"
+                                                    }}>
+                                                        <LazyLoadImage
+                                                            src={lockIcon}
+                                                            style={{
+                                                                paddingRight: "0.3rem",
+                                                                width: "1.1rem"
+                                                            }}
+                                                        />
                                                         <span>password</span>
                                                     </div>
                                                 }
@@ -167,7 +186,18 @@ const SignUp = () => {
                                                 helperText={touched.email && errors.email}
                                                 sx={{ marginBottom: "1.2rem" }}
                                                 label={
-                                                    <div >
+                                                    <div style={{
+                                                        display: "flex",
+                                                        flexDirection: "row",
+                                                        alignItems: "center"
+                                                    }}>
+                                                        <LazyLoadImage
+                                                            src={agentUserIcon}
+                                                            style={{
+                                                                paddingRight: "0.3rem",
+                                                                width: "1.1rem"
+                                                            }}
+                                                        />
                                                         <span>agent's email</span>
                                                     </div>
                                                 }

@@ -14,6 +14,10 @@ import Typography from "@mui/material/Typography";
 import { Formik } from "formik";
 import * as yup from "yup";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import briefcase from '../../../assets/applyForm/vuesax-outline-briefcase.svg';
+
 const ThirdStep = () => {
     const handleFormSubmit = (values) => {
         console.log(values);
@@ -52,6 +56,7 @@ const ThirdStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={briefcase} />
                                     <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Program Request</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>

@@ -21,6 +21,10 @@ import Button from '@mui/material/Button';
 import { Formik } from "formik";
 import * as yup from "yup";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import dollar from '../../../assets/applyForm/vuesax-outline-dollar-square.svg';
+
 const useStyles = makeStyles({
     root: {
     },
@@ -100,6 +104,7 @@ const FifthStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={dollar} />
                                     <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Biography</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>

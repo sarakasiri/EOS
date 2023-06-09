@@ -1,0 +1,76 @@
+.openIcon {
+    margin-left: 2rem;
+}
+
+.notCollapsedlogo {
+    width: 3rem;
+    height: 3rem;
+    filter: brightness(0) invert(1) !important;
+    margin-left: 2rem;
+}
+
+.collapsedlogo {
+    width: 2.3rem;
+    filter: brightness(0) invert(1) !important;
+
+}
+
+.iustTitle {
+    font-family: Montserrat;
+    color: #ffffff;
+    font-size: 0.7rem !important;
+    margin: 0 2rem 0 1rem !important;
+}
+
+.collapsedDash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    height: 0.01rem;
+    background-color: #463581;
+}
+
+.notCollapsedDash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 0.01rem;
+    background-color: #463581;
+}
+
+.itemsIcon {
+    width: 1.2rem;
+}
+
+.profileCardContainer {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 2rem;
+}
+
+.profileCard {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    background-color: #3c2a7b !important;
+    border-radius: 0.4rem !important;
+    width: 85%;
+}
+
+.collapsedProfileCard {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 7rem;
+
+}

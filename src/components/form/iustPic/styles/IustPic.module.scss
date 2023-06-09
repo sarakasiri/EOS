@@ -1,6 +1,40 @@
 .iustPicContainer {
     background-image: url(../../../../assets/formPic.png);
-    width: 75%;
+    width: 75% !important;
     height: 90% !important;
-    border-radius: 0.4rem;
+    border-radius: 0.4rem !important;
+}
+
+.iustContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+.iustTitle {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding-top: 3rem !important;
+}
+
+.iustLogo {
+    width: 4rem !important;
+    filter: brightness(0) invert(1) !important;
+    padding-right: 2rem !important;
+}
+
+.universityTitle {
+    display: flex !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+}
+
+.iustDescription {
+    display: flex !important;
+    text-align: left !important;
+    width: 80% !important;
+    margin-bottom: 3.5rem !important;
 }

@@ -18,8 +18,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from "@mui/material/Typography";
 import Button from '@mui/material/Button';
 
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import InputAdornment from "@mui/material/InputAdornment";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import dayjs from 'dayjs';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
@@ -29,7 +28,11 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 import { Formik } from "formik";
 import * as yup from "yup";
-import { TextField } from "@mui/material";
+
+import biography from '../../../assets/login/vuesax-outline-frame.svg';
+import global from '../../../assets/applyForm/vuesax-outline-global.svg';
+import languages from '../../../assets/applyForm/vuesax-outline-language-square.svg';
+import contact from '../../../assets/applyForm/vuesax-outline-call.svg';
 
 
 const useStyles = makeStyles({
@@ -92,7 +95,17 @@ const FirstStep = () => {
         firstName: yup.string().required("required"),
         lastName: yup.string().required("required"),
         dateOfBirth: yup.date().required("required").max(today),
+
+        nationality: yup.string().required("required"),
+        country: yup.string().required("required"),
+        cityCode: yup.string().required("required"),
+
+        english: yup.string().required("required"),
+        persian: yup.string().required("required"),
+
+        phoneNumber: yup.string().required("required"),
         email: yup.string().email("invalid email").required("required"),
+        postalAddress: yup.string().required("required"),
     });
 
     const initialValues = {
@@ -100,7 +113,22 @@ const FirstStep = () => {
         lastName: "",
         dateOfBirth: "",
         gender: "",
+
+        nationality: "",
+        country: "",
+        countryCode: "",
+        postalCode: "",
+        city: "",
+        cityCode: "",
+
+        motherLanguage: "",
+        otherLanguage: "",
+        english: "",
+        persian: "",
+
+        phoneNumber: "",
         email: "",
+        postalAddress: "",
     };
 
     return (
@@ -131,7 +159,10 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Biography</Typography>
+                                    <LazyLoadImage src={biography} />
+                                    <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>
+                                        Biography
+                                    </Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>
                                 </div>
@@ -144,6 +175,12 @@ const FirstStep = () => {
                                                     marginLeft: "2rem"
                                                 }}
                                             >
+                                                <img
+                                                    style={{
+                                                        paddingRight: "0.3rem",
+                                                        width: "1.1rem"
+                                                    }}
+                                                />
                                                 First Name
                                             </FormHelperText>
                                             <OutlinedInput
@@ -152,9 +189,11 @@ const FirstStep = () => {
                                                 value={values.firstName}
                                                 type="text"
                                                 name="firstName"
+                                                style={{
+                                                    paddingRight: "0.3rem",
+                                                }}
                                                 error={!!touched.firstName && !!errors.firstName}
                                                 className={classes.stepsTextField}
-                                                label="wfes"
                                                 sx={{
                                                     height: "3rem",
                                                     "& fieldset": { border: 'none' },
@@ -192,6 +231,7 @@ const FirstStep = () => {
                                                 className={classes.stepsTextField}
                                                 sx={{
                                                     height: "2.8rem",
+                                                    "& fieldset": { border: 'none' },
                                                 }}
                                             />
                                             <FormHelperText style={{
@@ -244,11 +284,13 @@ const FirstStep = () => {
                                                 className={classes.stepsTextField}
                                                 sx={{
                                                     height: "2.8rem",
+                                                    "& fieldset": { border: 'none' },
                                                 }}
                                             />
                                             <FormHelperText style={{
                                                 margin: "0.2rem 0 0.8rem 2rem",
-                                                color: "#fd0410"
+                                                color: "#fd0410",
+
                                             }}>
                                                 {touched.dateOfBirth && errors.dateOfBirth}
                                             </FormHelperText>
@@ -256,7 +298,7 @@ const FirstStep = () => {
                                     </Grid>
 
                                     <Grid item xs={3}>
-                                        <FormControl fullWidth>
+                                        {/* <FormControl fullWidth>
                                             <FormHelperText >Gender</FormHelperText>
                                             <RadioGroup row
                                                 onBlur={handleBlur}
@@ -308,7 +350,12 @@ const FirstStep = () => {
                                             }}>
                                                 {touched.firstName && errors.firstName}
                                             </FormHelperText>
-                                        </FormControl>
+                                        </FormControl> */}
+
+                                        <div style={{ width: "90%", backgroundColor: "red", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+                                            <div>male</div>
+                                            <div>female</div>
+                                        </div>
                                     </Grid>
 
                                 </Grid>
@@ -322,6 +369,8 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={global} />
+
                                     <Typography style={{
                                         marginRight: "auto ",
                                         color: "#96a0b5",
@@ -329,7 +378,7 @@ const FirstStep = () => {
                                     }}>
                                         National Info
                                     </Typography>
-                                    <div className={classes.menuItemDash}></div>
+                                    <div className={classes.dash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>
                                 </div>
                                 <Grid container xs={12}>
@@ -337,8 +386,13 @@ const FirstStep = () => {
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText >Nationality</FormHelperText>
                                             <Select
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.nationality}
+                                                type="text"
+                                                name="nationality"
+                                                error={!!touched.nationality && !!errors.nationality}
                                                 className={classes.stepsTextField}
-                                                label="vbhjkl"
                                                 sx={{
                                                     height: "2.8rem",
                                                     "& fieldset": { border: 'none' },
@@ -348,6 +402,12 @@ const FirstStep = () => {
                                                     <em>None</em>
                                                 </MenuItem>
                                             </Select>
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.nationality && errors.nationality}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
                                     <Grid item xs={3}>
@@ -367,10 +427,16 @@ const FirstStep = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText >Country Code</FormHelperText>
                                             <OutlinedInput
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.countryCode}
+                                                type="text"
+                                                name="nationality"
                                                 className={classes.stepsTextField}
                                                 sx={{
                                                     height: "2.8rem",
@@ -379,6 +445,7 @@ const FirstStep = () => {
                                             />
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText >Postal Code</FormHelperText>
@@ -391,6 +458,7 @@ const FirstStep = () => {
                                             />
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText >City</FormHelperText>
@@ -408,16 +476,29 @@ const FirstStep = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
+
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText >Postal Code</FormHelperText>
                                             <OutlinedInput
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.postalCode}
+                                                type="text"
+                                                name="postalCode"
+                                                error={!!touched.postalCode && !!errors.postalCode}
                                                 className={classes.stepsTextField}
                                                 sx={{
                                                     height: "2.8rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.postalCode && errors.postalCode}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
                                 </Grid>
@@ -431,6 +512,8 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={languages} />
+
                                     <Typography style={{
                                         color: "#96a0b5",
                                         padding: "0 1rem",
@@ -586,6 +669,8 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
+                                    <LazyLoadImage src={contact} />
+
                                     <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Contact</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>

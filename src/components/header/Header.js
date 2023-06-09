@@ -3,16 +3,39 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-const Header = ({ title }) => {
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+const Header = ({ title, icon }) => {
     return (
-        <Box mb="30px">
-            <Typography
-                variant="h2"
-                fontWeight="bold"
-                sx={{ m: "0 0 5px 0" }}
-            >
-                {title}
-            </Typography>
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                textAlign: "center"
+            }}>
+            <div style={{
+                borderRadius: "0.4rem",
+                marginRight: "0.8rem",
+                backgroundColor: "#121f3e"
+            }}>
+
+                {icon}
+            </div>
+            <div>
+
+                <Typography
+                    sx={{
+                        m: "0 0 3px 0",
+                        fontSize: "2.3rem",
+                        fontWeight: "550",
+                        fontFamily: "Montserrat",
+                        color: "#121f3e"
+                    }}
+                >
+                    {title}
+                </Typography>
+            </div>
         </Box>
     );
 };
