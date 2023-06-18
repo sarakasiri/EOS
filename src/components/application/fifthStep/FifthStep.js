@@ -111,59 +111,31 @@ const FifthStep = () => {
                                 </div>
                                 <Grid container xs={12}>
                                     <Grid item xs={3}>
-                                        <FormControl fullWidth>
-                                            <FormHelperText >Do you Hold Governmental/Institutional Scholarship For The Applied Program ?</FormHelperText>
-                                            <RadioGroup row
-                                                onBlur={handleBlur}
-                                                onChange={handleChange}
-                                                value={values.firstName}
-                                                name="firstName"
-                                                error={!!touched.firstName && !!errors.firstName}
-                                                helperText={touched.firstName && errors.firstName}
-                                            >
-                                                <div className={classes.radioButtonBackground}>
-                                                    <FormControlLabel
-                                                        fullWidth
-                                                        value="yes"
-                                                        control={<StyledRadio size="small" />}
-                                                        label={
-                                                            <Typography sx={{ fontSize: "0.7rem", marginTop: "-0.5rem" }}>
-                                                                Yes
-                                                            </Typography>
-                                                        }
-                                                        labelPlacement="bottom"
-                                                    />
+                                        <div style={{ marginLeft: "1rem" }}>
+                                            <Typography className={classes.radioButtonsTitle}>Do you hold any Governmental / Institutional
+                                                Scholarship for the applied program?</Typography>
+                                            <div className={classes.radioButtons}>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>Yes</Typography>
                                                 </div>
-                                                <div className={classes.radioButtonBackground}>
-                                                    <FormControlLabel
-                                                        className={classes.kiriRadio}
-                                                        value="good"
-                                                        control={<StyledRadio size="small"
-                                                            sx={{
-                                                                '&.Mui-checked': {
-                                                                    border: "2rem sollid #5919e0e3",
-                                                                    color: '#5919e0e3 !important',
-                                                                },
-                                                                '& .css-r5ex5e-MuiSvgIcon-root': {
-                                                                    color: "red"
-                                                                }
-                                                            }} />}
-                                                        label={
-                                                            <Typography sx={{ fontSize: "0.7rem", marginTop: "-0.5rem" }}>
-                                                                Male
-                                                            </Typography>
-                                                        }
-                                                        labelPlacement="bottom"
-                                                    />
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>No</Typography>
                                                 </div>
-                                            </RadioGroup>
-                                            <FormHelperText style={{
-                                                margin: "0.2rem 0 0.8rem 2rem",
-                                                color: "#fd0410"
-                                            }}>
-                                                {touched.firstName && errors.firstName}
-                                            </FormHelperText>
-                                        </FormControl>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <div>
+                                            <Typography className={classes.radioButtonsTitle} style={{ marginTop: "1.15rem" }}>Self Support</Typography>
+                                            <div className={classes.radioButtons} >
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>Yes</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>No</Typography>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </Grid>
 
                                 </Grid>

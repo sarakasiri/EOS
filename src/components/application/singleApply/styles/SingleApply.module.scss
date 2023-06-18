@@ -1,0 +1,95 @@
+@import "../../../../app/styles/Colors.scss";
+
+.totalFormBox {
+    background-color: $background !important;
+    border-radius: 0.3rem !important;
+    padding: 1rem 0;
+}
+
+.requestId {
+    background-color: $buttons-text !important;
+    margin: 1rem 1.5rem !important;
+    border-radius: 0.3rem !important;
+}
+
+.requestTitle {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.personalInfo {
+    background-color: $buttons-text !important;
+    margin: 1rem 1.5rem !important;
+    border-radius: 0.3rem !important;
+}
+
+.fieldsContainer {
+    padding: 1rem !important;
+}
+
+.fieldBox {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+    border: 0.1rem solid $border !important;
+    margin: 0.93rem !important;
+    border-radius: 0.4rem !important;
+}
+
+.fieldText {
+    margin: 1.6rem;
+}
+
+.fieldTitle {
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    color: $textfield-text-color !important;
+}
+
+.fieldAnswer {
+    font-family: Montserrat !important;
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+    padding-top: 0.8rem !important;
+    color: $textfield-text-color !important;
+}
+
+.eachBox {
+    padding: 1.1rem !important;
+}
+
+.boxTitle {
+    position: absolute !important;
+    margin-top: -0.6rem !important;
+    background-color: white !important;
+    margin-left: 1rem !important;
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    color: $textfield-text-color !important;
+    font-weight: 600 !important;
+}
+
+.box {
+    border: 0.05rem solid $border !important;
+    border-radius: 0.4rem !important;
+}
+
+.bioInfo {
+    margin: 0.8rem !important;
+}
+
+.eachTitle {
+    color: $final_check_title !important;
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    padding-top: 0.5rem;
+}
+
+.finalCheckInfo {
+    font-family: Montserrat !important;
+    padding: 0.4rem 0;
+    font-size: 0.9rem !important;
+}

@@ -1,0 +1,7 @@
+<svg id="vuesax_outline_arrow-circle-right" data-name="vuesax/outline/arrow-circle-right" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <g id="arrow-circle-right">
+    <path id="Vector" d="M6.719,13.437A6.719,6.719,0,1,0,0,6.719,6.724,6.724,0,0,0,6.719,13.437Zm0-12.5A5.781,5.781,0,1,1,.938,6.719,5.788,5.788,0,0,1,6.719.937Z" transform="translate(0.781 0.781)" fill="#292d32"/>
+    <path id="Vector-2" data-name="Vector" d="M2.673,5.348A.464.464,0,0,0,3,5.211a.472.472,0,0,0,0-.662L1.13,2.673,3,.8A.468.468,0,1,0,2.342.136L.136,2.342A.472.472,0,0,0,.136,3L2.342,5.211A.464.464,0,0,0,2.673,5.348Z" transform="translate(5.614 4.827)" fill="#292d32"/>
+    <path id="Vector-3" data-name="Vector" d="M15,0H0V15H15Z" fill="none" opacity="0"/>
+  </g>
+</svg>

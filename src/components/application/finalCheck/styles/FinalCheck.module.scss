@@ -17,9 +17,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 80%;
     height: 0.01rem;
     background-color: $border ;
+}
+
+.finalCheckButton {
+    background-color: $auth_buttons !important;
+    text-transform: capitalize !important;
+    height: 1.8rem;
+    padding: 0 1rem !important;
+}
+
+.editIcon {
+    filter: brightness(0) invert(1) !important;
+    padding-right: 0.2rem !important;
+}
+
+.editSpan {
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    color: $buttons-text !important;
 }
 
 .eachBox {
@@ -28,9 +46,13 @@
 
 .boxTitle {
     position: absolute !important;
-    margin-top: -0.8rem !important;
+    margin-top: -0.6rem !important;
     background-color: white !important;
     margin-left: 1rem !important;
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    color: $textfield-text-color !important;
+    font-weight: 600 !important;
 }
 
 .box {
@@ -44,4 +66,13 @@
 
 .eachTitle {
     color: $final_check_title !important;
+    font-family: Montserrat !important;
+    font-size: 0.8rem !important;
+    padding-top: 0.5rem;
+}
+
+.finalCheckInfo {
+    font-family: Montserrat !important;
+    padding: 0.4rem 0;
+    font-size: 0.9rem !important;
 }

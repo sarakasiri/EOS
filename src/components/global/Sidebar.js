@@ -139,7 +139,7 @@ const ReactSidebar = () => {
                         />
                         <Item
                             title="Notifications"
-                            to="/notification"
+                            to="/dashboard/notification"
                             icon={<LazyLoadImage className={classes.itemsIcon} src={notificationIcon} />}
                             selected={selected}
                             setSelected={setSelected}
@@ -153,7 +153,7 @@ const ReactSidebar = () => {
                         />
                         <Item
                             title="Help"
-                            to="/help"
+                            to="/dashboard/help"
                             icon={<LazyLoadImage className={classes.itemsIcon} src={helpIcon} />}
                             selected={selected}
                             setSelected={setSelected}

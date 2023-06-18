@@ -24,11 +24,11 @@ const ThirdStep = () => {
     };
 
     const checkoutSchema = yup.object().shape({
-        phdUniversty: yup.string().required("required"),
+        occupation: yup.string().required("required"),
     });
 
     const initialValues = {
-        phdUniversty: "",
+        occupation: "",
     };
 
     return (
@@ -65,11 +65,43 @@ const ThirdStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Occupation</FormHelperText>
+                                            <FormHelperText className={classes.textFieldTitles}>Occupation</FormHelperText>
+                                            <Select
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.occupation}
+                                                type="text"
+                                                name="occupation"
+                                                style={{
+                                                    paddingRight: "0.3rem",
+                                                }}
+                                                error={!!touched.occupation && !!errors.occupation}
+                                                className={classes.stepsTextField}
+                                                sx={{
+                                                    height: "3rem",
+                                                    "& fieldset": { border: 'none' },
+                                                }}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                            </Select>
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.occupation && errors.occupation}
+                                            </FormHelperText>
+                                        </FormControl>
+                                    </Grid>
+
+                                    <Grid item xs={3}>
+                                        <FormControl variant="outlined" fullWidth>
+                                            <FormHelperText className={classes.textFieldTitles}>Organization</FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -82,11 +114,11 @@ const ThirdStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Organization</FormHelperText>
+                                            <FormHelperText className={classes.textFieldTitles}>Country</FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -99,12 +131,12 @@ const ThirdStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Country</FormHelperText>
+
+                                            <FormHelperText className={classes.textFieldTitles}>City</FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -116,33 +148,74 @@ const ThirdStep = () => {
                                     </Grid>
 
                                     <Grid item xs={3}>
-                                        <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >City</FormHelperText>
-                                            <Select
+                                        <FormControl variant="outlined" fullWidth >
+                                            <FormHelperText
+                                                className={classes.textFieldTitles}
+
+                                            >
+                                                Date Of Birth
+                                            </FormHelperText>
+                                            <OutlinedInput
+                                                type="date"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.dateOfBirth}
+                                                name="dateOfBirth"
+                                                error={!!touched.dateOfBirth && !!errors.dateOfBirth}
+                                                helperText={touched.dateOfBirth && errors.dateOfBirth}
                                                 className={classes.stepsTextField}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
-                                            >
-                                                <MenuItem value="">
-                                                    <em>None</em>
-                                                </MenuItem>
-                                            </Select>
+                                            />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410",
+
+                                            }}>
+                                                {touched.dateOfBirth && errors.dateOfBirth}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
 
-                                    <Grid item xs={3}></Grid>
+                                    <Grid item xs={3}>
+                                        <FormControl variant="outlined" fullWidth >
+                                            <FormHelperText
+                                                className={classes.textFieldTitles}
 
-                                    <Grid item xs={3}></Grid>
+                                            >
+                                                Date Of Birth
+                                            </FormHelperText>
+                                            <OutlinedInput
+                                                type="date"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.dateOfBirth}
+                                                name="dateOfBirth"
+                                                error={!!touched.dateOfBirth && !!errors.dateOfBirth}
+                                                helperText={touched.dateOfBirth && errors.dateOfBirth}
+                                                className={classes.stepsTextField}
+                                                sx={{
+                                                    height: "3rem",
+                                                    "& fieldset": { border: 'none' },
+                                                }}
+                                            />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410",
+
+                                            }}>
+                                                {touched.dateOfBirth && errors.dateOfBirth}
+                                            </FormHelperText>
+                                        </FormControl>
+                                    </Grid>
 
                                     <Grid item xs={12}>
                                         <FormControl variant="outlined" fullWidth rows={10}>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Please Specify
                                             </FormHelperText>
@@ -152,6 +225,7 @@ const ThirdStep = () => {
                                                 minRows={10}
                                                 sx={{
                                                     "& fieldset": { border: 'none' },
+                                                    marginBottom: "1rem",
                                                 }}
                                             />
                                         </FormControl>

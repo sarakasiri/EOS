@@ -1,3 +1,5 @@
+@import "../../../../app/styles/Colors.scss";
+
 .totalFormBox {
     background-color: rgba(249, 244, 244, 0.541);
     border-radius: 0.3rem !important;
@@ -17,6 +19,14 @@
     width: 85%;
     height: 0.01rem;
     background-color: #d9e4ec;
+}
+
+.textFieldTitles {
+    margin-left: 2rem !important;
+    color: #121f3e !important;
+    font-family: Montserrat !important;
+    font-size: 0.7rem !important;
+    padding-bottom: 0.1rem !important;
 }
 
 .stepsTextField {

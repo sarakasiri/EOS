@@ -8,7 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 
-const Notification = () => {
+const Help = () => {
     return (
         <>
             <Box className={classes.totalFormBox}>
@@ -87,4 +87,4 @@ const Notification = () => {
     );
 };
 
-export default Notification;
+export default Help;

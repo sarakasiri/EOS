@@ -1,3 +1,5 @@
+@import "../../../../app/styles/Colors.scss";
+
 .totalFormBox {
     background-color: rgba(249, 244, 244, 0.541);
     border-radius: 0.3rem !important;
@@ -19,6 +21,14 @@
     background-color: #d9e4ec;
 }
 
+.textFieldTitles {
+    margin-left: 2rem !important;
+    color: #121f3e !important;
+    font-family: Montserrat !important;
+    font-size: 0.7rem !important;
+    padding-bottom: 0.1rem !important;
+}
+
 .stepsTextField {
     background-color: rgba(208, 208, 208, 0.251);
     margin: 0 1rem 0 1rem;
@@ -28,13 +38,43 @@
     border: 0.01rem solid #9989d3;
 }
 
-.radioButtonBackground {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(192, 192, 192, 0.114);
+
+.radioButtonsTitle {
+    font-size: 0.7rem !important;
+    color: $textfield-text-color !important;
+    font-family: Montserrat !important;
+    padding-left: 1.8rem !important;
+    padding-bottom: 0.3rem !important;
+}
+
+.radioButtons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    margin-left: 0.8rem !important;
+    width: 90% !important;
+    height: 3rem !important;
     border-radius: 0.2rem;
-    margin-left: 0.2rem;
-    width: 7rem;
-    height: 2.85rem;
+    background-color: $apply-steps-textfield-background !important;
+}
+
+.radioButtonText {
+    font-size: 0.75rem !important;
+    font-family: Montserrat !important;
+    color: $textfield-text-color !important;
+}
+
+.radioButtonsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color: white !important;
+    height: 78%;
+}
+
+.titleVector {
+    filter: invert(39%) sepia(79%) saturate(687%) hue-rotate(200deg) brightness(89%) contrast(95%);
 }

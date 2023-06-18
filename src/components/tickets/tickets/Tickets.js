@@ -10,31 +10,31 @@ import Button from '@mui/material/Button';
 
 const ticketsColumns = [
     {
-        field: 'ticket id',
+        field: 'ticketId',
         headerName: 'Ticket id',
-        width: 200
+        width: 145
     },
     {
-        field: 'opened on',
+        field: 'openedOn',
         headerName: 'Opened On',
-        width: 250,
+        width: 145,
     },
     {
         field: 'priority',
         headerName: 'Priority',
-        width: 290,
+        width: 190,
 
     },
     {
         field: 'status',
         headerName: 'Status',
-        width: 300,
+        width: 200,
 
     },
     {
-        field: 'latest message',
+        field: 'latestMessage',
         headerName: 'Latest Message',
-        width: 360,
+        width: 260,
 
     },
 ];
@@ -54,7 +54,7 @@ const Tickets = () => {
                     sx={{
                         backgroundColor: "white",
                         borderRadius: "0.5rem",
-                        padding: "2rem",
+                        padding: "1rem",
                         "& .MuiDataGrid-root": {
                             borderBottom: "none",
                             borderLeft: "none",
@@ -92,17 +92,21 @@ const Tickets = () => {
                 <div className={classes.ticketsButton}>
                     <Button
                         style={{
-                            width: "11%",
+                            width: "15%",
                             margin: "2rem 1rem 1rem 2rem",
                             borderRadius: "0.5rem",
                             border: "none",
-                            backgroundColor: "#2c1970"
+                            backgroundColor: "#2c1970",
+                            height: "3.2rem"
                         }}
                     >
                         <Typography
                             style={{
                                 padding: "0.9rem",
-                                color: "#ffffff"
+                                fontWeight: "550",
+                                color: "#ffffff",
+                                fontSize: "0.8rem",
+                                fontFamily: "Montserrat"
                             }}
                         >
                             + New Ticket

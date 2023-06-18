@@ -159,8 +159,8 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={biography} />
-                                    <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>
+                                    <LazyLoadImage className={classes.titleVector} src={biography} />
+                                    <Typography style={{ color: "#121f3e", padding: "0 0.4rem" }}>
                                         Biography
                                     </Typography>
                                     <div className={classes.menuItemDash}></div>
@@ -172,15 +172,10 @@ const FirstStep = () => {
                                         <FormControl variant="outlined" fullWidth  >
                                             <FormHelperText
                                                 style={{
-                                                    marginLeft: "2rem"
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
                                                 }}
                                             >
-                                                <img
-                                                    style={{
-                                                        paddingRight: "0.3rem",
-                                                        width: "1.1rem"
-                                                    }}
-                                                />
                                                 First Name
                                             </FormHelperText>
                                             <OutlinedInput
@@ -197,9 +192,6 @@ const FirstStep = () => {
                                                 sx={{
                                                     height: "3rem",
                                                     "& fieldset": { border: 'none' },
-                                                    "& .Mui-error": {
-                                                        border: "1rem solid red !important"
-                                                    },
                                                 }}
                                             />
                                             <FormHelperText style={{
@@ -215,7 +207,8 @@ const FirstStep = () => {
                                             variant="outlined"
                                             fullWidth >
                                             <FormHelperText style={{
-                                                marginLeft: "2rem"
+                                                marginLeft: "2rem",
+                                                color: "#121f3e",
                                             }}
                                             >
                                                 Last Name
@@ -230,7 +223,7 @@ const FirstStep = () => {
 
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -268,7 +261,8 @@ const FirstStep = () => {
                                         <FormControl variant="outlined" fullWidth >
                                             <FormHelperText
                                                 style={{
-                                                    marginLeft: "2rem"
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
                                                 }}
                                             >
                                                 Date Of Birth
@@ -283,7 +277,7 @@ const FirstStep = () => {
                                                 helperText={touched.dateOfBirth && errors.dateOfBirth}
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -352,9 +346,16 @@ const FirstStep = () => {
                                             </FormHelperText>
                                         </FormControl> */}
 
-                                        <div style={{ width: "90%", backgroundColor: "red", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
-                                            <div>male</div>
-                                            <div>female</div>
+                                        <div>
+                                            <Typography className={classes.radioButtonsTitle}>Gender</Typography>
+                                            <div className={classes.radioButtons} style={{ height: "2.6rem", width: "90%", backgroundColor: "red", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>Male</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "45%" }}>
+                                                    <Typography className={classes.radioButtonText}>Female</Typography>
+                                                </div>
+                                            </div>
                                         </div>
                                     </Grid>
 
@@ -369,11 +370,11 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={global} />
+                                    <LazyLoadImage className={classes.titleVector} src={global} />
 
                                     <Typography style={{
                                         marginRight: "auto ",
-                                        color: "#96a0b5",
+                                        color: "#121f3e",
                                         padding: "0 0.4rem"
                                     }}>
                                         National Info
@@ -384,7 +385,13 @@ const FirstStep = () => {
                                 <Grid container xs={12}>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Nationality</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Nationality
+                                            </FormHelperText>
                                             <Select
                                                 onBlur={handleBlur}
                                                 onChange={handleChange}
@@ -394,7 +401,7 @@ const FirstStep = () => {
                                                 error={!!touched.nationality && !!errors.nationality}
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -412,12 +419,27 @@ const FirstStep = () => {
                                     </Grid>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Country</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Country
+                                            </FormHelperText>
                                             <Select
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.country}
+                                                type="text"
+                                                name="country"
+                                                style={{
+                                                    paddingRight: "0.3rem",
+                                                }}
+                                                error={!!touched.country && !!errors.country}
                                                 className={classes.stepsTextField}
                                                 label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -425,12 +447,25 @@ const FirstStep = () => {
                                                     <em>None</em>
                                                 </MenuItem>
                                             </Select>
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410",
+
+                                            }}>
+                                                {touched.country && errors.country}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Country Code</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Country Code
+                                            </FormHelperText>
                                             <OutlinedInput
                                                 onBlur={handleBlur}
                                                 onChange={handleChange}
@@ -439,7 +474,7 @@ const FirstStep = () => {
                                                 name="nationality"
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -448,11 +483,17 @@ const FirstStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Postal Code</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Postal Code
+                                            </FormHelperText>
                                             <OutlinedInput
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -461,12 +502,18 @@ const FirstStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >City</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                City
+                                            </FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
                                                 label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -479,17 +526,23 @@ const FirstStep = () => {
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Postal Code</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                City Code
+                                            </FormHelperText>
                                             <OutlinedInput
                                                 onBlur={handleBlur}
                                                 onChange={handleChange}
-                                                value={values.postalCode}
+                                                value={values.cityCode}
                                                 type="text"
-                                                name="postalCode"
-                                                error={!!touched.postalCode && !!errors.postalCode}
+                                                name="cityCode"
+                                                error={!!touched.cityCode && !!errors.cityCode}
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -497,7 +550,7 @@ const FirstStep = () => {
                                                 margin: "0.2rem 0 0.8rem 2rem",
                                                 color: "#fd0410"
                                             }}>
-                                                {touched.postalCode && errors.postalCode}
+                                                {touched.cityCode && errors.cityCode}
                                             </FormHelperText>
                                         </FormControl>
                                     </Grid>
@@ -512,10 +565,10 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={languages} />
+                                    <LazyLoadImage className={classes.titleVector} src={languages} />
 
                                     <Typography style={{
-                                        color: "#96a0b5",
+                                        color: "#121f3e",
                                         padding: "0 1rem",
 
                                         marginRight: "auto ",
@@ -528,11 +581,17 @@ const FirstStep = () => {
                                 <Grid container xs={12}>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Mother Language</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Mother Language
+                                            </FormHelperText>
                                             <OutlinedInput
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -540,18 +599,25 @@ const FirstStep = () => {
                                     </Grid>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Other Languages</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Other Languages
+                                            </FormHelperText>
                                             <OutlinedInput
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
                                         </FormControl>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <FormControl fullWidth>
+
+                                        {/* <FormControl fullWidth>
                                             <FormHelperText >English</FormHelperText>
                                             <RadioGroup row>
                                                 <div className={classes.radioButtonBackground}>
@@ -602,10 +668,26 @@ const FirstStep = () => {
                                                     />
                                                 </div>
                                             </RadioGroup>
-                                        </FormControl>
+                                        </FormControl> */}
+
+
+                                        <div>
+                                            <Typography className={classes.radioButtonsTitle}>English</Typography>
+                                            <div className={classes.radioButtons} style={{ height: "2.6rem", width: "90%", backgroundColor: "red", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>Excellent</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>good</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>weak</Typography>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <FormControl fullWidth>
+                                        {/* <FormControl fullWidth>
                                             <FormHelperText >Persian</FormHelperText>
                                             <RadioGroup row>
                                                 <div className={classes.radioButtonBackground}>
@@ -656,7 +738,23 @@ const FirstStep = () => {
                                                     />
                                                 </div>
                                             </RadioGroup>
-                                        </FormControl>
+                                        </FormControl> */}
+
+
+                                        <div>
+                                            <Typography className={classes.radioButtonsTitle}>Persian</Typography>
+                                            <div className={classes.radioButtons} style={{ height: "2.6rem", width: "90%", backgroundColor: "red", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>Excellent</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>good</Typography>
+                                                </div>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>weak</Typography>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -669,47 +767,104 @@ const FirstStep = () => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={contact} />
+                                    <LazyLoadImage className={classes.titleVector} src={contact} />
 
-                                    <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Contact</Typography>
+                                    <Typography style={{ color: "#121f3e", padding: "0 0.4rem" }}>Contact</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>
                                 </div>
                                 <Grid container xs={12}>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Phone Or Cell Number</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Phone Or Cell Number
+                                            </FormHelperText>
                                             <OutlinedInput
+                                                type="text"
+                                                name="phornNumber"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.phoneNumber}
+                                                error={!!touched.phoneNumber && !!errors.phoneNumber}
+
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.phoneNumber && errors.phoneNumber}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText > Email</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Email
+                                            </FormHelperText>
                                             <OutlinedInput
+                                                type="text"
+                                                name="email"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.email}
+                                                error={!!touched.email && !!errors.email}
+
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.email && errors.email}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
                                     <Grid item xs={6}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Postal Address</FormHelperText>
+                                            <FormHelperText
+                                                style={{
+                                                    marginLeft: "2rem",
+                                                    color: "#121f3e",
+                                                }}>
+                                                Postal Address
+                                            </FormHelperText>
                                             <OutlinedInput
+                                                type="text"
+                                                name="postalAddress"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.postalAddress}
+                                                error={!!touched.postalAddress && !!errors.postalAddress}
+
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.postalAddress && errors.postalAddress}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
                                 </Grid>

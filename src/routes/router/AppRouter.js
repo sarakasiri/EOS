@@ -11,6 +11,8 @@ import NewPass from '../../components/form/newPass/NewPass';
 import StepsProcess from '../../components/application/stepsProcess/StepsProcess';
 import Tickets from '../../components/tickets/tickets/Tickets';
 import Notification from '../../components/notifications/notifications/Notification';
+import Help from '../../components/help/Help';
+// import Notification from '../../components/notifications/notifications/Notification';
 
 
 const AppRouter = () => {
@@ -72,6 +74,30 @@ const AppRouter = () => {
         {
             path: '/dashboard/new-application',
             component: <StepsProcess />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/dashboard/new-application',
+            component: <StepsProcess />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/dashboard/notification',
+            component: <Notification />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/dashboard/profile-info',
+            component: <StepsProcess />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/dashboard/help',
+            component: <Help />,
             protected: true,
             exact: true
         },

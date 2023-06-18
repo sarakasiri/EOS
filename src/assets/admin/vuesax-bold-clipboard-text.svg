@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="vuesax_bold_clipboard-text" data-name="vuesax/bold/clipboard-text" transform="translate(-108 -252)">
+    <g id="clipboard-text" transform="translate(108 252)">
+      <path id="Vector" d="M4.668,0H1.339A1.336,1.336,0,0,0,0,1.332V2A1.33,1.33,0,0,0,1.332,3.329H4.668A1.33,1.33,0,0,0,6,2V1.332A1.326,1.326,0,0,0,4.668,0Z" transform="translate(4.997 0.417)" fill="#1c1b20"/>
+      <path id="Vector-2" data-name="Vector" d="M9.08.522A1.975,1.975,0,0,1,7.2,2.569H4.14A1.975,1.975,0,0,1,2.259.522a.488.488,0,0,0-.716-.46A3.215,3.215,0,0,0,0,2.86V9.525a3.054,3.054,0,0,0,2.91,3.166H8.43a3.054,3.054,0,0,0,2.91-3.166V2.86A3.215,3.215,0,0,0,9.8.062.488.488,0,0,0,9.08.522ZM5.917,9.114H3.066a.533.533,0,0,1,0-1.063H5.917a.533.533,0,0,1,0,1.063ZM7.622,6.281H3.066a.533.533,0,0,1,0-1.063H7.622a.533.533,0,0,1,0,1.063Z" transform="translate(2.33 1.892)" fill="#1c1b20"/>
+      <path id="Vector-3" data-name="Vector" d="M0,0H16V16H0Z" transform="translate(16 16) rotate(180)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

@@ -76,6 +76,10 @@ const SecondStep = (props) => {
     };
 
     const checkoutSchema = yup.object().shape({
+        degree: yup.string().required("required"),
+        faculty: yup.string().required("required"),
+        fieldOfStudy: yup.string().required("required"),
+
         phdUniversty: yup.string().required("required"),
         phdFieldofStudy: yup.string().required("required"),
         phdDateOfGraduation: yup.string().required("required"),
@@ -90,17 +94,29 @@ const SecondStep = (props) => {
     });
 
     const initialValues = {
+        degree: "",
+        faculty: "",
+        fieldOfStudy: "",
+
         phdUniversty: "",
         phdFieldofStudy: "",
         phdDateOfGraduation: "",
         phdGpa: "",
         phdCountry: "",
+        phdCity: "",
 
         masterUniversty: "",
         masterFieldofStudy: "",
         masterDateOfGraduation: "",
         masterGpa: "",
         masterCountry: "",
+        masterCity: "",
+
+        highSchoolFieldofStudy: "",
+        highSchoolDateOfGraduation: "",
+        highSchoolGpa: "",
+        highSchoolCountry: "",
+        highSchoolCity: "",
     };
 
     return (
@@ -128,69 +144,48 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={book} />
+                                    <LazyLoadImage className={classes.titleVector} src={book} />
 
-                                    <Typography style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Program Request</Typography>
+                                    <Typography style={{ color: "#121f3e", padding: "0 0.4rem" }}>Program Request</Typography>
                                     <div className={classes.menuItemDash}></div>
                                     <span style={{ color: "#96a0b5", padding: "0 0.4rem" }}>Or</span>
                                 </div>
                                 <Grid container xs={12}>
 
-                                    <Grid item xs={3}>
-                                        <FormControl fullWidth>
-                                            <FormHelperText >Degree</FormHelperText>
-                                            <RadioGroup row>
-                                                <div className={classes.radioButtonBackground}>
-                                                    <FormControlLabel
-                                                        fullWidth
-                                                        value={degree === 1}
-                                                        onClick={() => handleDegreeForm(1)}
-                                                        control={<StyledRadio />}
-                                                        label={
-                                                            <Typography sx={{ fontSize: "0.7rem", marginTop: "-0.5rem" }}>
-                                                                Bachelor
-                                                            </Typography>
-                                                        }
-                                                        labelPlacement="bottom"
-                                                    />
+                                    <Grid item xs={3} >
+                                        <div >
+                                            <Typography className={classes.radioButtonsTitle}>Degree</Typography>
+                                            <div className={classes.radioButtons}>
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>Bachelor</Typography>
                                                 </div>
-                                                <div className={classes.radioButtonBackground}>
-                                                    <FormControlLabel
-                                                        value={degree === 2}
-                                                        onClick={(e) => handleDegreeForm(2)}
-                                                        control={<StyledRadio value="Master" size="small" />}
-                                                        label={
-                                                            <Typography sx={{ fontSize: "0.7rem", marginTop: "-0.5rem" }}>
-                                                                Master
-                                                            </Typography>
-                                                        }
-                                                        labelPlacement="bottom"
-                                                    />
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>Master</Typography>
                                                 </div>
-                                                <div className={classes.radioButtonBackground}>
-                                                    <FormControlLabel
-                                                        value={degree === 3}
-                                                        onClick={(e) => handleDegreeForm(3)}
-                                                        control={<StyledRadio size="small" />}
-                                                        label={
-                                                            <Typography sx={{ fontSize: "0.7rem", marginTop: "-0.5rem" }}>
-                                                                Ph.D.
-                                                            </Typography>
-                                                        }
-                                                        labelPlacement="bottom"
-                                                    />
+                                                <div className={classes.radioButtonsDiv} style={{ width: "30%" }}>
+                                                    <Typography className={classes.radioButtonText}>Ph.D.</Typography>
                                                 </div>
-                                            </RadioGroup>
-                                        </FormControl>
+                                            </div>
+                                        </div>
                                     </Grid>
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Nationality</FormHelperText>
+                                            <FormHelperText
+                                                className={classes.textFieldTitles}
+                                            >
+                                                Faculty
+                                            </FormHelperText>
                                             <Select
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                value={values.faculty}
+                                                type="text"
+                                                name="faculty"
+                                                error={!!touched.faculty && !!errors.faculty}
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -198,17 +193,26 @@ const SecondStep = (props) => {
                                                     <em>None</em>
                                                 </MenuItem>
                                             </Select>
+                                            <FormHelperText style={{
+                                                margin: "0.2rem 0 0.8rem 2rem",
+                                                color: "#fd0410"
+                                            }}>
+                                                {touched.faculty && errors.faculty}
+                                            </FormHelperText>
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
-                                            <FormHelperText >Nationality</FormHelperText>
+                                            <FormHelperText
+                                                className={classes.textFieldTitles}
+                                            >
+                                                Field Of Study
+                                            </FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -232,11 +236,11 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={award} />
+                                    <LazyLoadImage className={classes.titleVector} src={award} />
 
                                     <Typography style={{
                                         marginRight: "auto ",
-                                        color: "#96a0b5",
+                                        color: "#121f3e",
                                         padding: "0 0.4rem"
                                     }}>
                                         Master's Degree
@@ -248,9 +252,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 University
                                             </FormHelperText>
@@ -263,7 +266,7 @@ const SecondStep = (props) => {
                                                 name="phdUniversty"
                                                 error={!!touched.phdUniversty && !!errors.phdUniversty}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -278,9 +281,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Field Of Study
                                             </FormHelperText>
@@ -293,7 +295,7 @@ const SecondStep = (props) => {
                                                 name="phdFieldofStudy"
                                                 error={!!touched.phdFieldofStudy && !!errors.phdFieldofStudy}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -312,9 +314,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Date Of Graduation
                                             </FormHelperText>
@@ -327,7 +328,7 @@ const SecondStep = (props) => {
                                                 name="phdDateOfGraduation"
                                                 error={!!touched.phdDateOfGraduation && !!errors.phdDateOfGraduation}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -342,9 +343,7 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
                                             >
                                                 GPA
                                             </FormHelperText>
@@ -357,7 +356,7 @@ const SecondStep = (props) => {
                                                 name="phdGpa"
                                                 error={!!touched.phdGpa && !!errors.phdGpa}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -372,9 +371,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Country
                                             </FormHelperText>
@@ -386,9 +384,8 @@ const SecondStep = (props) => {
                                                 type="text"
                                                 name="phdCountry"
                                                 error={!!touched.phdCountry && !!errors.phdCountry}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -417,7 +414,7 @@ const SecondStep = (props) => {
                                                 className={classes.stepsTextField}
                                                 label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -429,6 +426,8 @@ const SecondStep = (props) => {
                                     </Grid>
                                 </Grid>
                             </Box>
+
+
                             <Box className={classes.formBox}>
                                 <div style={{
                                     display: "flex",
@@ -437,11 +436,11 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={award} />
+                                    <LazyLoadImage className={classes.titleVector} src={award} />
 
                                     <Typography style={{
                                         marginRight: "auto ",
-                                        color: "#96a0b5",
+                                        color: "#121f3e",
                                         padding: "0 0.4rem"
                                     }}>
                                         Master's Degree
@@ -453,9 +452,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 University
                                             </FormHelperText>
@@ -468,7 +466,7 @@ const SecondStep = (props) => {
                                                 name="masterUniversty"
                                                 error={!!touched.masterUniversty && !!errors.masterUniversty}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -483,9 +481,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Field Of Study
                                             </FormHelperText>
@@ -498,7 +495,7 @@ const SecondStep = (props) => {
                                                 name="masterFieldofStudy"
                                                 error={!!touched.masterFieldofStudy && !!errors.masterFieldofStudy}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -517,9 +514,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Date Of Graduation
                                             </FormHelperText>
@@ -532,7 +528,7 @@ const SecondStep = (props) => {
                                                 name="masterDateOfGraduation"
                                                 error={!!touched.masterDateOfGraduation && !!errors.masterDateOfGraduation}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -547,9 +543,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 GPA
                                             </FormHelperText>
@@ -562,7 +557,7 @@ const SecondStep = (props) => {
                                                 name="masterGpa"
                                                 error={!!touched.masterGpa && !!errors.masterGpa}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -577,9 +572,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Country
                                             </FormHelperText>
@@ -591,9 +585,8 @@ const SecondStep = (props) => {
                                                 type="text"
                                                 name="masterCountry"
                                                 error={!!touched.masterCountry && !!errors.masterCountry}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -612,17 +605,15 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 City
                                             </FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
-                                                label="vbhjkl"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -643,11 +634,11 @@ const SecondStep = (props) => {
                                     marginBottom: "0.5rem",
                                     paddingTop: "0.8rem",
                                 }}>
-                                    <LazyLoadImage src={award} />
+                                    <LazyLoadImage className={classes.titleVector} src={award} />
 
                                     <Typography style={{
                                         marginRight: "auto ",
-                                        color: "#96a0b5",
+                                        color: "#121f3e",
                                         padding: "0 0.4rem"
                                     }}>
                                         High School
@@ -659,9 +650,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Subject (Type Of Certificate)
                                             </FormHelperText>
@@ -669,7 +659,7 @@ const SecondStep = (props) => {
                                                 className={classes.stepsTextField}
                                                 type="text"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -678,9 +668,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Date Of Graduation
                                             </FormHelperText>
@@ -688,7 +677,7 @@ const SecondStep = (props) => {
                                                 className={classes.stepsTextField}
                                                 type="text"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -697,9 +686,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 GPA
                                             </FormHelperText>
@@ -707,7 +695,7 @@ const SecondStep = (props) => {
                                                 className={classes.stepsTextField}
                                                 type="text"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             />
@@ -716,9 +704,8 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 Country
                                             </FormHelperText>
@@ -726,7 +713,7 @@ const SecondStep = (props) => {
                                                 className={classes.stepsTextField}
                                                 type="text"
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
@@ -739,16 +726,15 @@ const SecondStep = (props) => {
                                     <Grid item xs={3}>
                                         <FormControl variant="outlined" fullWidth>
                                             <FormHelperText
-                                                style={{
-                                                    marginLeft: "2rem"
-                                                }}
+                                                className={classes.textFieldTitles}
+
                                             >
                                                 City
                                             </FormHelperText>
                                             <Select
                                                 className={classes.stepsTextField}
                                                 sx={{
-                                                    height: "2.8rem",
+                                                    height: "3rem",
                                                     "& fieldset": { border: 'none' },
                                                 }}
                                             >
